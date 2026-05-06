@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Plateforme d'Examen Moderne</title>
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="Css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- En-tête du formulaire -->
+        <div class="form-header">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <h1>Inscription Candidat</h1>
+            <p class="subtitle">Système d'évaluation hybride anti-triche</p>
+           
+        </div>
+
+        <!-- Formulaire d'inscription -->
+        <form id="registrationForm" novalidate>
+            <div class="form-grid">
+                <!-- Colonne Gauche : Informations personnelles -->
+                <div class="form-column">
+                    <h3 class="section-title">
+                        <span class="icon">👤</span> Identité
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="matricule">Matricule</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="matricule" name="matricule" placeholder="Ex: ETU2024-001" required autocomplete="off">
+                            <span class="input-icon">🔢</span>
+                        </div>
+                        <small class="error-msg" id="matriculeError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="family-name">
+                            <span class="input-icon">📛</span>
+                        </div>
+                        <small class="error-msg" id="nomError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required autocomplete="given-name">
+                            <span class="input-icon">✍️</span>
+                        </div>
+                        <small class="error-msg" id="prenomError"></small>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="age">Âge</label>
+                            <input type="number" id="age" name="age" min="16" max="99" placeholder="18" required>
+                            <small class="error-msg" id="ageError"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="sexe">Sexe</label>
+                            <select id="sexe" name="sexe" required>
+                                <option value="" disabled selected>-- Choisir --</option>
+                                <option value="Masculin">Masculin</option>
+                                <option value="Féminin">Féminin</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                            <small class="error-msg" id="sexeError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filiere">Filière</label>
+                        <select id="filiere" name="filiere" required>
+                            <option value="" disabled selected>-- Sélectionnez votre filière --</option>
+                            <option value="Informatique">💻 Informatique</option>
+                            <option value="Mathématiques">📐 Mathématiques</option>
+                            <option value="Physique">⚛️ Physique</option>
+                            <option value="Biologie">🧬 Biologie</option>
+                            <option value="Chimie">🧪 Chimie</option>
+                            <option value="Lettres">📚 Lettres Modernes</option>
+                            <option value="Droit">⚖️ Droit</option>
+                            <option value="Économie">📈 Économie</option>
+                        </select>
+                        <small class="error-msg" id="filiereError"></small>
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Sécurité & Biométrie -->
+                <div class="form-column">
+                    <h3 class="section-title">
+                        <span class="icon">🔐</span> Sécurité & Biométrie
+                    </h3>
+
+                    <!-- Capture d'empreinte faciale -->
+                    <div class="form-group facial-capture-group">
+                        <label>Empreinte faciale <span class="required-star">*</span></label>
+                        <div class="camera-container" id="cameraContainer">
+                            <video id="video" autoplay playsinline muted></video>
+                            <canvas id="canvas" style="display: none;"></canvas>
+                            <div class="camera-placeholder" id="cameraPlaceholder">
+                                <div class="placeholder-icon">📷</div>
+                                <p>Activez votre caméra</p>
+                            </div>
+                            <div class="captured-preview" id="capturedPreview" style="display: none;">
+                                <img id="capturedImage" src="" alt="Empreinte capturée">
+                                <span class="captured-badge">✓ Capturée</span>
+                            </div>
+                        </div>
+                        <div class="camera-controls">
+                            <button type="button" class="btn btn-camera" id="startCameraBtn">
+                                <span>📷</span> Démarrer la caméra
+                            </button>
+                            <button type="button" class="btn btn-capture" id="captureBtn" disabled>
+                                <span>📸</span> Capturer
+                            </button>
+                            <button type="button" class="btn btn-retake" id="retakeBtn" style="display: none;">
+                                <span>🔄</span> Reprendre
+                            </button>
+                        </div>
+                        <input type="hidden" id="empreinteFaciale" name="empreinteFaciale">
+                        <small class="error-msg" id="empreinteError"></small>
+                        <small class="info-msg">L'empreinte faciale sera utilisée pour la vérification anti-triche lors des examens.</small>
+                    </div>
+
+                    <!-- Mot de passe -->
+                    <div class="form-group">
+                        <label for="motDePasse">Mot de passe</label>
+                        <div class="input-with-icon password-field">
+                            <input type="password" id="motDePasse" name="motDePasse" placeholder="Minimum 8 caractères" required minlength="8" autocomplete="new-password">
+                            <button type="button" class="toggle-password" id="togglePassword1" title="Afficher/Masquer">👁️</button>
+                        </div>
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bar" id="strengthBar"></div>
+                        </div>
+                        <small class="error-msg" id="motDePasseError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmerMotDePasse">Confirmer le mot de passe</label>
+                        <div class="input-with-icon password-field">
+                            <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasse" placeholder="Confirmez votre mot de passe" required autocomplete="new-password">
+                            <button type="button" class="toggle-password" id="togglePassword2" title="Afficher/Masquer">👁️</button>
+                        </div>
+                        <small class="error-msg" id="confirmerMotDePasseError"></small>
+                    </div>
+
+                    <!-- Récapitulatif de sécurité -->
+                    <div class="security-checklist">
+                        <p class="checklist-title">🔒 Exigences de sécurité :</p>
+                        <ul>
+                            <li id="checkLength">❌ 8 caractères minimum</li>
+                            <li id="checkUpper">❌ Au moins une majuscule</li>
+                            <li id="checkLower">❌ Au moins une minuscule</li>
+                            <li id="checkNumber">❌ Au moins un chiffre</li>
+                            <li id="checkSpecial">❌ Au moins un caractère spécial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boutons d'action -->
+            <div class="form-actions">
+                <button type="reset" class="btn btn-reset">
+                    <span>🗑️</span> Réinitialiser
+                </button>
+                <button type="submit" class="btn btn-submit" id="submitBtn">
+                    <span>✅</span> S'inscrire
+                </button>
+            </div>
+        </form>
+
+        <!-- Message de succès (caché par défaut) -->
+        <div class="success-message" id="successMessage" style="display: none;">
+            <div class="success-icon">🎉</div>
+            <h2>Inscription réussie !</h2>
+            <p>Votre profil a été enregistré avec succès.</p>
+            <p class="success-detail">L'empreinte faciale a été associée à votre compte pour la vérification anti-triche.</p>
+            <button class="btn btn-submit" onclick="location.reload()">Nouvelle inscription</button>
+        </div>
+    </div>
+
+    <!-- Lien vers le fichier JavaScript externe -->
+    <script src="script.js"></script>
+</body>
+</html>

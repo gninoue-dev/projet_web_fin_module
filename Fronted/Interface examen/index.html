@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Examen Sécurisé - Plateforme IA</title>
+  <link rel="stylesheet" href="Css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <h1>🎓 Plateforme d’Examen Sécurisée</h1>
+  <p>Système hybride anti-triche avec surveillance IA</p>
+</header>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- CAMERA / FACE VERIFICATION -->
+  <div class="panel camera-panel">
+    <h2>🧠 Vérification du candidat</h2>
+
+    <video id="video" autoplay muted></video>
+
+    <div class="status">
+      <p id="faceStatus">⏳ Initialisation de la reconnaissance faciale...</p>
+    </div>
+
+    <div class="warning">
+      ⚠️ Toute tentative de fraude est enregistrée automatiquement
+    </div>
+  </div>
+
+  <!-- EXAM -->
+  <div class="panel exam-panel">
+
+    <div class="timer">
+      ⏱ Temps restant : <span id="time">30:00</span>
+    </div>
+
+    <div class="question-box">
+      <h2>Question 1</h2>
+      <p>Expliquez le rôle d’un système d’exploitation dans un ordinateur.</p>
+
+      <textarea placeholder="Tapez votre réponse ici..."></textarea>
+    </div>
+
+    <div class="navigation">
+      <button onclick="prevQuestion()">⬅ Précédent</button>
+      <button onclick="nextQuestion()">Suivant ➡</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 - Plateforme d’évaluation sécurisée</p>
+</footer>
+
+<script src="exam.js"></script>
+</body>
+</html>

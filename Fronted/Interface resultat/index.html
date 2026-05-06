@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Résultats - Examen Sécurisé</title>
+  <link rel="stylesheet" href="Css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1>🎓 Résultats de l’Examen</h1>
+  <p>Système d’évaluation hybride anti-triche avec IA</p>
+</header>
+
+<div class="container">
+
+  <!-- PROFIL ÉTUDIANT -->
+  <div class="card profile">
+    <h2>👤 Profil Étudiant</h2>
+    <p><strong>Nom :</strong> Jean Koffi</p>
+    <p><strong>Matricule :</strong> EXA-2026-0145</p>
+    <p><strong>Session :</strong> Examen Final</p>
+  </div>
+
+  <!-- SCORE -->
+  <div class="card score">
+    <h2>📊 Score Final</h2>
+    <div class="circle">
+      <span id="score">0</span>/100
+    </div>
+    <p id="grade">Calcul en cours...</p>
+  </div>
+
+  <!-- IA SURVEILLANCE -->
+  <div class="card security">
+    <h2>🧠 Analyse Anti-Triche IA</h2>
+
+    <ul>
+      <li>✔ Reconnaissance faciale : Validée</li>
+      <li>✔ Visage unique : Confirmé</li>
+      <li>✔ Comportement : Normal</li>
+      <li id="cheatStatus">⚠ Analyse avancée en cours...</li>
+    </ul>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="card details">
+    <h2>📌 Détails de performance</h2>
+
+    <div class="bar">
+      <p>Algorithmes</p>
+      <div class="progress"><div class="fill" style="width: 80%"></div></div>
+    </div>
+
+    <div class="bar">
+      <p>Systèmes d’exploitation</p>
+      <div class="progress"><div class="fill" style="width: 65%"></div></div>
+    </div>
+
+    <div class="bar">
+      <p>Réseaux</p>
+      <div class="progress"><div class="fill" style="width: 90%"></div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 - Plateforme d’évaluation sécurisée IA</p>
+</footer>
+
+<script src="result.js"></script>
+</body>
+</html>

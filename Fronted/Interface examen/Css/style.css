@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 20px;
+  background: #1e293b;
+  border-bottom: 2px solid #334155;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* PANELS */
+.panel {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* CAMERA */
+video {
+  width: 100%;
+  height: 250px;
+  background: black;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* STATUS */
+.status {
+  margin-top: 10px;
+  padding: 10px;
+  background: #0f172a;
+  border-radius: 8px;
+  border-left: 4px solid #22c55e;
+}
+
+.warning {
+  margin-top: 15px;
+  padding: 10px;
+  background: #991b1b;
+  border-radius: 8px;
+}
+
+/* EXAM */
+.timer {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #38bdf8;
+}
+
+.question-box {
+  background: #0f172a;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* BUTTONS */
+.navigation {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;   
+  background: #2563eb;
+  color: white;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  background: #1e293b;
+}

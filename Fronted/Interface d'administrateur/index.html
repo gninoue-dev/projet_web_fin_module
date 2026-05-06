@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Plateforme d'Examen</title>
+    <link rel="stylesheet" href="Css/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+        <li>Dashboard</li>
+        <li>Étudiants</li>
+        <li>Examens</li>
+        <li>Surveillance IA</li>
+        <li>Paramètres</li>
+    </ul>
+</div>
+
+<div class="main-content">
+
+    <header>
+        <h1>Tableau de bord administrateur</h1>
+        <p>Système d’évaluation hybride anti-triche</p>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <h3>Étudiants</h3>
+            <p id="studentsCount">120</p>
+        </div>
+
+        <div class="card">
+            <h3>Examens actifs</h3>
+            <p>3</p>
+        </div>
+
+        <div class="card">
+            <h3>Alerte triche</h3>
+            <p class="alert">0 détectée</p>
+        </div>
+    </section>
+
+    <section class="camera-section">
+        <h2>Surveillance en temps réel (IA)</h2>
+        <video id="adminVideo" autoplay></video>
+        <button id="startCamera">Activer la surveillance</button>
+        <p id="status"></p>
+    </section>
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
