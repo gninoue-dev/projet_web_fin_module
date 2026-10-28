@@ -1,0 +1,58 @@
+/* ============================================
+   ANIMATIONS COMMUNES AUX 5 INTERFACES
+   Chargé après le style.css de chaque interface.
+   Aucune mise en page modifiée : seulement des entrées et des effets.
+   ============================================ */
+
+/* Passage d'une interface à l'autre : fondu glissé (navigateurs récents) */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: pwSortie .2s ease-in both; }
+::view-transition-new(root) { animation: pwEntree .38s cubic-bezier(.22,.9,.32,1) both; }
+@keyframes pwSortie { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes pwEntree { from { opacity: 0; transform: translateY(16px); } }
+
+/* Cartes et panneaux : arrivée en douceur */
+.login-container, .card, .panel, .header, .sidebar, .question-box, .success-message {
+  animation: pwArrivee .55s cubic-bezier(.22,.9,.32,1) backwards;
+}
+.sidebar { animation-name: pwGlisseGauche; }
+@keyframes pwArrivee { from { opacity: 0; transform: translateY(20px); } }
+@keyframes pwGlisseGauche { from { opacity: 0; transform: translateX(-24px); } }
+
+/* Champs de formulaire en cascade */
+.form-group { animation: pwArrivee .45s cubic-bezier(.22,.9,.32,1) backwards; }
+.form-group:nth-child(2) { animation-delay: 0.20s; }
+.form-group:nth-child(3) { animation-delay: 0.25s; }
+.form-group:nth-child(4) { animation-delay: 0.30s; }
+.form-group:nth-child(5) { animation-delay: 0.35s; }
+.form-group:nth-child(6) { animation-delay: 0.40s; }
+.form-group:nth-child(7) { animation-delay: 0.45s; }
+.form-group:nth-child(8) { animation-delay: 0.50s; }
+.form-group:nth-child(9) { animation-delay: 0.55s; }
+.form-group:nth-child(10) { animation-delay: 0.60s; }
+
+/* Icône du logo qui rebondit, icône de succès qui apparaît */
+.logo-icon, .success-icon { display: inline-block; animation: pwRebond .7s .25s cubic-bezier(.3,1.6,.5,1) backwards; }
+@keyframes pwRebond { from { transform: scale(0) rotate(-20deg); } }
+
+/* Barres de progression qui se remplissent */
+.progress .fill, .bar .fill { transform-origin: left; animation: pwRemplir .9s .3s cubic-bezier(.22,.9,.32,1) backwards; }
+@keyframes pwRemplir { from { transform: scaleX(0); } }
+
+/* Message d'erreur : petit tremblement quand il apparaît */
+.error-msg:not(:empty) { animation: pwTremble .35s ease-in-out; }
+@keyframes pwTremble { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+
+/* Avertissement pendant l'examen : il pulse */
+.warning { animation: pwAlerte 1.6s ease-in-out infinite; }
+@keyframes pwAlerte { 50% { opacity: .75; } }
+
+/* Survol et clic */
+.card { transition: transform .25s cubic-bezier(.22,.9,.32,1), box-shadow .25s; }
+.card:hover { transform: translateY(-3px); }
+.btn:active, .btn-submit:active { transform: scale(.97); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  @view-transition { navigation: none; }
+}
